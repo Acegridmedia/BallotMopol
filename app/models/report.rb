@@ -13,4 +13,10 @@ class Report < ApplicationRecord
   # validates :election_id, presence: true
   # validates :lga_id, presence: true
   # validates :state_id, presence: true
+
+  def self.filter(state_id, lga_id)
+    q = state_id || lga_id
+
+    q ? where("state_id = ? or lga_id = ?", q, q) : all
+  end
 end

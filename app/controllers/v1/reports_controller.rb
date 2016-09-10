@@ -1,11 +1,11 @@
 class V1::ReportsController < ApplicationController
   def index
-    reports = Report.all
+    reports = Report.filter(params["state_id"], params["lga_id"])
     render json: { reports: reports }, status: 200
   end
 
   def create
-    report = Report.new(report_params)
+    report = current_user.reports.new(report_params)
 
     if report.save
       render json: report, status: 201
