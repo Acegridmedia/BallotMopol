@@ -22,3 +22,26 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+create a report
+
+ - POST /v1/reports
+
+ - {
+      "report":{
+          "summary":"vel est donec odio justo sollicitudin ut suscipit a feugiat et eros",
+          "state_id":28,
+          "election_id":2,
+          "images_attributes":
+          [
+            {
+              "link":"http://dummyimage.com/186x222.bmp/cc0000/ffffff"
+
+            },
+            {
+              "link":"http://dummyimage.com/116x207.bmp/ff4444/ffffff"
+            }
+          ]
+
+        }
+    }

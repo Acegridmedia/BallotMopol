@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :v1 do
     resources :states, only: [:index]
     resources :elections, only: [:index]
+    resources :users, only: [:create, :edit, :destroy]
 
     resources :reports
   end

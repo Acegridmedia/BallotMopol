@@ -1,6 +1,7 @@
 class V1::ReportsController < ApplicationController
   def index
-    render json: { error: "No report yet" }, status: 404
+    reports = Report.all
+    render json: { reports: reports }, status: 200
   end
 
   def create
