@@ -6,16 +6,16 @@ class V1::ReportsController < ApplicationController
   def create
     report = Report.new(report_params)
 
-    if bucketlist.save
-      render json: bucketlist, status: 200
+    if report.save
+      render json: report, status: 201
     else
-      render json: bucketlist.errors, status: 422
+      render json: report.errors, status: 422
     end
   end
 
   private
 
   def report_params
-    params.permit(:name)
+    params.require(:report).permit(:summary, :state_id, :lga_id, :election_id, images_attributes: [:link])
   end
 end
