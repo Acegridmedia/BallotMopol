@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem "jwt"
+gem 'twitter'
 #gem "rack-cors", require: "rack/cors"
 
 
@@ -28,6 +29,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
   gem "factory_girl_rails"
+  gem 'dotenv-rails'
 end
 
 group :development do

@@ -8,7 +8,7 @@ class SocialShare
   def post_to_twitter
     tweets = split_tweet
     tweets.each do |tweet|
-      puts tweet
+      $twitter_client.update(tweet)
     end
 
     Report.last.delete
