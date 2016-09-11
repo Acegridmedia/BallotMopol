@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::API
-   before_action :authenticate_user, except: [:root]
+  include ActionController::Serialization
+
+  before_action :authenticate_user, except: [:root]
 
   attr_reader :current_user
 
