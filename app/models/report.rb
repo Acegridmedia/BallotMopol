@@ -6,6 +6,7 @@ class Report < ApplicationRecord
   belongs_to :lga, optional: true;
 
   has_many :images
+  has_many :comments
 
   accepts_nested_attributes_for :images
 

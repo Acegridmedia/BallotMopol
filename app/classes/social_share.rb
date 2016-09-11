@@ -2,13 +2,13 @@ class SocialShare
 
   def initialize(report)
     @report = report
-    post_to_twitter
+    # post_to_twitter
   end
 
   def post_to_twitter
     tweets = split_tweet
     tweets.each do |tweet|
-      $twitter_client.update(tweet)
+      # $twitter_client.update(tweet)
     end
 
     Report.last.delete
