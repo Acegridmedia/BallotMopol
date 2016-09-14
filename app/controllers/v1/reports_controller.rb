@@ -1,7 +1,7 @@
 class V1::ReportsController < ApplicationController
   def index
     reports = Report.filter(params["state_id"], params["lga_id"])
-    render json: { reports: reports }, status: 200
+    render json: reports, include: ['comments'], status: 200
   end
 
   def create
@@ -19,7 +19,7 @@ class V1::ReportsController < ApplicationController
     report = Report.find_by(id: params[:id])
 
     if report
-      render json: { report: report }, status: 200
+      render json: report, include: ['comments', 'election', 'state'], status: 200
     else
       render json: { error: "Report does not exist" }, status: 404
     end

@@ -3,9 +3,16 @@ class V1::CommentsController < ApplicationController
     comment = current_user ? current_user.comments.new(comment_params) : Comment.new(comment_params)
 
     if comment.save
-      render json: { comment: comment }, status: 201
+      render json: comment, status: 201
     else
       render json: { error: "comment could not be created" }, status: 422
+    end
+  end
+
+  def index
+    comments = Comment.where(report_id: params[:report_id])
+    if comments
+      render json: comments, status: 200
     end
   end
 
