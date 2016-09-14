@@ -1,5 +1,5 @@
 class ReportSerializer < ActiveModel::Serializer
-  attributes :id, :details, :comments, :created_at, :time
+  attributes :id, :content, :comments, :created_at, :time
 
   belongs_to :election
   belongs_to :state
