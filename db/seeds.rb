@@ -54,4 +54,6 @@ typ.each do |e|
   Election.create(name: e, year: years.sample)
 end
 
-Report.create(content: Faker::Hipster.sentences(1), state: State.all.sample, election: Election.all.sample)
+20.times do
+  Report.create(content: Faker::Hipster.sentences(1), state: State.all.sample, election: Election.all.sample)
+end

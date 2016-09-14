@@ -6,8 +6,7 @@ class CreateReports < ActiveRecord::Migration[5.0]
       t.references :lga, index: true, foreign_key: true
       t.references :election, index: true, foreign_key: true
 
-      t.string :summary, null: false
-
+      t.string :content, null: false
       t.timestamps
     end
   end
