@@ -22,6 +22,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
+gem 'faker'
 
 group :production do
   gem "pg"
@@ -32,7 +33,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem "factory_girl_rails"
   gem 'dotenv-rails'
-  gem 'faker'
   gem 'sqlite3'
 end
 

@@ -1,3 +1,7 @@
+State.destroy_all
+
+Election.destroy_all
+
 states = {
   "AB"=> "Abia",
   "AJ"=> "Abuja",
@@ -49,3 +53,5 @@ typ = ["Presidential", "Governorship", "National House of Representative", "Sena
 typ.each do |e|
   Election.create(name: e, year: years.sample)
 end
+
+Report.create(content: Faker::Hipster.sentences(1), state: State.all.sample, election: Election.all.sample)
