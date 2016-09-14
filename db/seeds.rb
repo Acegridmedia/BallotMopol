@@ -1,6 +1,4 @@
-State.destroy_all
 
-Election.destroy_all
 
 states = {
   "AB"=> "Abia",
