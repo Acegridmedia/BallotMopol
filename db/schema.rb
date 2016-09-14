@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160911103213) do
+ActiveRecord::Schema.define(version: 20160914130138) do
 
   create_table "comments", force: :cascade do |t|
-    t.string   "details",    null: false
+    t.string   "content",    null: false
     t.integer  "report_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20160911103213) do
     t.integer  "state_id"
     t.integer  "lga_id"
     t.integer  "election_id"
-    t.string   "details",     null: false
+    t.string   "content",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["election_id"], name: "index_reports_on_election_id"
