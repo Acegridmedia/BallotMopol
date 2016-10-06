@@ -8,7 +8,7 @@ class V1::SessionsController < ApplicationController
       token = user.generate_token
       user.update token: token
 
-      render json: { notice: "Login successful", token: token, user: user }, status: 201
+      render json: user, status: 201
     else
       render json: { error: "Incorrect username/password" }, status: 401
     end

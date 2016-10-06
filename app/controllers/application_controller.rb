@@ -7,6 +7,9 @@ class ApplicationController < ActionController::API
 
   def authenticate_user
    @current_user = User.find_by(id: decoded_auth_token["user_id"]) if decoded_auth_token && user_token?
+    # unless @current_user
+    #   render json: { error: "access denied" }, status: 422
+    # end
   end
 
   def decoded_auth_token

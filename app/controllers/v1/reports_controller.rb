@@ -1,7 +1,7 @@
 class V1::ReportsController < ApplicationController
   def index
     reports = Report.filter(params["state_id"], params["lga_id"])
-    render json: reports, include: ['comments'], status: 200
+    render json: reports, status: 200
   end
 
   def create
