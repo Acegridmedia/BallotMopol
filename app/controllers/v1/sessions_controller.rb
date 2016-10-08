@@ -1,8 +1,8 @@
 class V1::SessionsController < ApplicationController
-   skip_before_action :authenticate_user, only: :create
+   # skip_before_action :authenticate_user, only: :create
 
   def create
-    user = User.find_by(email: session_params[:login_id]) || User.find_by(username: session_params[:login_id])
+    user = User.find_by(phone_number: session_params[:login_id]) || User.find_by(username: session_params[:login_id])
 
     if user && user.authenticate(session_params[:password])
       token = user.generate_token
@@ -22,6 +22,6 @@ class V1::SessionsController < ApplicationController
   private
 
   def session_params
-    params.permit(:login_id, :password)
+    params.require(:user).permit(:login_id, :password)
   end
 end

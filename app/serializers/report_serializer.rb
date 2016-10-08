@@ -1,15 +1,15 @@
 class ReportSerializer < ActiveModel::Serializer
-  attributes :id, :content, :comments, :created_at, :time
+  attributes :id, :content, :posted_by, :created_at
 
   belongs_to :election
   belongs_to :state
+  has_many :comments
 
   def created_at
-    object.created_at.strftime("%Y-%m-%d")
+    object.created_at
   end
 
-  def time
-     object.created_at.strftime("%I:%M %p")
+   def posted_by
+    object.user.username
   end
-
 end

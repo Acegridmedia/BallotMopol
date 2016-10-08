@@ -55,9 +55,13 @@
 # 20.times do
 #   Report.create(content: Faker::Lorem.paragraph, state: State.all.sample, election: Election.all.sample)
 # end
-
 reports = Report.all
+users = User.all
+100.times do
+  comment = Comment.create(report: reports.sample, content: Faker::Lorem.paragraph(1), user: users.sample)
+end
+
 
 reports.each do |report|
-  report.update(content: Faker::Lorem.paragraph)
+  report.update(user: users.sample)
 end

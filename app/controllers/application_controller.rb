@@ -1,14 +1,15 @@
 class ApplicationController < ActionController::API
   include ActionController::Serialization
 
-  before_action :authenticate_user, except: [:root]
+  # before_action :authenticate_user, except: [:root]
 
-  attr_reader :current_user
+  # attr_reader :current_user
 
   def authenticate_user
-   @current_user = User.find_by(id: decoded_auth_token["user_id"]) if decoded_auth_token && user_token?
-    # unless @current_user
-    #   render json: { error: "access denied" }, status: 422
+    puts "here"
+   # @current_user = User.find_by(id: decoded_auth_token["user_id"]) if decoded_auth_token && user_token?
+   #  # unless @current_user
+   #  #   render json: { error: "access denied" }, status: 422
     # end
   end
 
