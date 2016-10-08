@@ -10,7 +10,7 @@ class V1::SessionsController < ApplicationController
 
       render json: user, status: 201
     else
-      render json: { error: "Incorrect username/password" }, status: 401
+      render json: { message: "Incorrect username/password" }, status: 401
     end
   end
 

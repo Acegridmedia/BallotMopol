@@ -10,7 +10,7 @@ class V1::UsersController < ApplicationController
 
       render json: user, status: 201
     else
-      render json: { error: "user could not be created" }, status: 422
+      render json: { message: user.errors }, status: 422
     end
   end
 
