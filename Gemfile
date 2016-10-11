@@ -25,6 +25,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'faker'
 gem 'rack-cors'
 gem "paperclip"
+gem "pry-rails"
 
 group :production do
   gem "pg"

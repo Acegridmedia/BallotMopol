@@ -1,17 +1,18 @@
 class V1::ReportsController < ApplicationController
   def index
-    reports = Report.filter(params["state_id"], params["lga_id"]).order("id DESC")
+
+    reports = Report.filter(params["state_id"], params["lga_id"], params["election_id"]).order("id": "DESC").page(params[:page].to_i)
     render json: reports, status: 200
   end
 
   def create
-    report =  Report.new(report_params)
+    report =  current_user.reports.new(report_params) || Report.new(report_params)
 
     if report.save
       # SocialShare.new(report)
       render json: report, status: 201
     else
-      render json: report.errors, status: 422
+      render json: { message: "could not be created"}, status: 422
     end
   end
 
@@ -28,6 +29,7 @@ class V1::ReportsController < ApplicationController
   private
 
   def report_params
-    params.require(:report).permit(:content, :state_id, :lga_id, :election_id, images_attributes: [:link])
+    params.require(:report).permit(:content, :state_id, :lga_id, :election_id)
   end
 end
+#.order("id DESC")

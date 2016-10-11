@@ -10,6 +10,6 @@ class ReportSerializer < ActiveModel::Serializer
   end
 
    def posted_by
-    object.user.username
+    object.user.username if object.user
   end
 end

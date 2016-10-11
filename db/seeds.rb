@@ -52,16 +52,29 @@
 #   Election.create(name: e, year: years.sample)
 # end
 
-# 20.times do
-#   Report.create(content: Faker::Lorem.paragraph, state: State.all.sample, election: Election.all.sample)
+# num = "0802"
+
+# 10.times do
+#   tail = Faker::Number.number(7)
+#   number = "#{num}#{tail}"
+#   User.create(username: Faker::Internet.user_name, phone_number: number, password_digest: Faker::Internet.password)
 # end
-reports = Report.all
-users = User.all
-100.times do
-  comment = Comment.create(report: reports.sample, content: Faker::Lorem.paragraph(1), user: users.sample)
-end
+
+# users = User.all
+# reports = Report.all
+
+# reports.each do |report|
+#   report.update!(user: users.sample)
+# end
 
 
-reports.each do |report|
-  report.update(user: users.sample)
-end
+# comments = Comment.all
+
+# comments.each do |comment|
+#   comment.update!(user: users.sample)
+# end
+
+
+# reports.each do |report|
+#   report.update(user: users.sample)
+# end
