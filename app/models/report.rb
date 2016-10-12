@@ -10,17 +10,6 @@ class Report < ApplicationRecord
 
   accepts_nested_attributes_for :images
 
-  # validates :summary, presence: true
-  # validates :election_id, presence: true
-  # validates :lga_id, presence: true
-  # validates :state_id, presence: true
-
-  def self.filter(state_id, lga_id, election_id)
-    q = state_id || lga_id || election_id
-
-    q ? where("state_id = ? or lga_id = ? or election_id = ?", q, q, q) : all
-  end
-
   scope(
     :filter,
     lambda do |state_id, lga_id, election_id|
@@ -33,8 +22,8 @@ class Report < ApplicationRecord
   scope(
     :page,
     lambda do |page|
-      offset = 2 * (page - 1)
-      offset(offset).limit(2)
+      offset = 20 * (page - 1)
+      offset(offset).limit(20)
     end
   )
 
