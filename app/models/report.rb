@@ -21,7 +21,7 @@ class Report < ApplicationRecord
 
   scope(
     :page,
-    lambda do |page|
+    lambda do |page=1|
       offset = 20 * (page - 1)
       offset(offset).limit(20)
     end
