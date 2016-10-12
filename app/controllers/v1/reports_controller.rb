@@ -13,7 +13,7 @@ class V1::ReportsController < ApplicationController
   end
 
   def create
-    report =  current_user.reports.new(report_params) || Report.new(report_params)
+    report =  current_user ? current_user.reports.new(report_params) : Report.new(report_params)
 
     if report.save
       # SocialShare.new(report)
