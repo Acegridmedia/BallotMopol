@@ -62,6 +62,7 @@ end
 
 users = User.all
 elections = Election.all
+states = State.all
 
 # reports = Report.all
 
