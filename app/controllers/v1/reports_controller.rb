@@ -3,7 +3,7 @@ class V1::ReportsController < ApplicationController
     # if params[:related]
     #   reports = Report.filter(params["state_id"], params["lga_id"], params["election_id"]).limit(params[:related].to_i)
     # else
-      reports = Report.filter(params["state_id"], params["lga_id"], params["election_id"]).order("id": "DESC").page(params[:page].to_i)
+      reports = Report.filter(params["state_id"], params["lga_id"], params["election_id"]).order("id": "DESC").page(params[:page])
     # end
     if reports
       render json: reports, status: 200
