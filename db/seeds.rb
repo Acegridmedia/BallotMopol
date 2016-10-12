@@ -78,7 +78,7 @@ states = State.all
   Report.create(content: Faker::Lorem.paragraph(4), user: users.sample, election: elections.sample, state: states.sample)
 end
 
-#reports = Report.all
+reports = Report.all
 # reports = Report.last(100)
 
 550.times do
