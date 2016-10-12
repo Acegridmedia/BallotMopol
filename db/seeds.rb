@@ -61,6 +61,8 @@ num = "0802"
 end
 
 users = User.all
+elections = Election.all
+
 # reports = Report.all
 
 # reports.each do |report|
