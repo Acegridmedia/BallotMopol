@@ -1,7 +1,10 @@
 class V1::ReportsController < ApplicationController
   def index
-
-    reports = Report.filter(params["state_id"], params["lga_id"], params["election_id"]).order("id": "DESC").page(params[:page].to_i)
+    # if params[:related]
+    #   reports = Report.filter(params["state_id"], params["lga_id"], params["election_id"]).limit(params[:related].to_i)
+    # else
+      reports = Report.filter(params["state_id"], params["lga_id"], params["election_id"]).order("id": "DESC").page(params[:page].to_i)
+    # end
     render json: reports, status: 200
   end
 
